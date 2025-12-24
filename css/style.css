@@ -638,3 +638,16 @@ footer {
         border-radius: 15px; /* Una mica menys de radi en pantalles petites */
     }
 }
+
+@media (max-width: 900px) {
+    /* Augmentem l'espai lateral perquè el text respiri millor */
+    .container {
+        padding: 0 30px; 
+    }
+
+    /* Ens assegurem que el text de "Sobre mi" no estigui massa apretat */
+    .sobre-mi-text p {
+        font-size: 1rem;
+        padding: 0 10px;
+    }
+}
