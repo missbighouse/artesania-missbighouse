@@ -226,10 +226,7 @@ nav a:hover {
 .categoria-card {
     position: relative;
     height: 350px;
-    background-color: var(--color-secundari); /* Només color de fons */
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+    background: var(--color-secundari) no-repeat center center/cover;
     border-radius: 8px;
     overflow: hidden;
     display: flex;
@@ -653,6 +650,10 @@ footer {
         font-size: 1rem;
         padding: 0 10px;
     }
-
 }
 
+/* Definim les imatges aquí per evitar errors de ruta a l'HTML */
+.cat-sabons { background-image: url('../img/portada_sabons.jpg'); }
+.cat-joies { background-image: url('../img/portada_joies.jpg'); }
+.cat-espelmes { background-image: url('../img/portada_espelmes.jpg'); }
+.cat-ambientadors { background-image: url('../img/productes/aina1.jpg'); }
