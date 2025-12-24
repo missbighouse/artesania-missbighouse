@@ -226,7 +226,10 @@ nav a:hover {
 .categoria-card {
     position: relative;
     height: 350px;
-    background: var(--color-secundari);
+    background-color: var(--color-secundari); /* Només color de fons */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     border-radius: 8px;
     overflow: hidden;
     display: flex;
@@ -652,3 +655,4 @@ footer {
     }
 
 }
+
