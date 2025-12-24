@@ -60,7 +60,12 @@
                 <div class="formulari-wrapper">
                     <h2>O Envia un Missatge Directe</h2>
                     
-                    <form id="contact-form" name="contacte" method="POST" data-netlify="true">
+                    <form id="contact-form" name="contacte" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/index.html">
+                        
+                        <p style="display:none;">
+                            <label>No omplis això si ets humà: <input name="bot-field" /></label>
+                        </p>
+
                         <input type="hidden" name="form-name" value="contacte">
 
                         <div class="form-grup">
@@ -75,13 +80,7 @@
                             <label for="missatge">Missatge (Quina comanda vols fer?)</label>
                             <textarea id="missatge" name="missatge" rows="6" required></textarea>
                         </div>
-                        <p style="display:none;">
-                            <label>No omplis això: <input name="bot-field" /></label>
-                        </p>
-                        
-                        <input type="hidden" name="form-name" value="contacte">
                         <button type="submit" class="btn">Enviar Missatge</button>
-                        
                     </form>
                 </div>
 
