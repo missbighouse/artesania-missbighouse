@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catàleg - Artesania Missbighouse</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo">Artesania Missbighouse</a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Inici</a></li>
+                    <li><a href="cataleg.html" class="active">Catàleg</a></li>
+                    <li><a href="contacte.html">Contacte</a></li>
+                </ul>
+            </nav>
+            <button class="menu-hamburguesa" aria-label="Obrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="cataleg-header container">
+            <h1 class="fade-in">El Nostre Catàleg</h1>
+            <p class="fade-in delay-1">Filtra per categoria o descobreix totes les nostres creacions.</p>
+        </section>
+
+        <section class="filtres container fade-in-scroll">
+            <button class="btn-filtre" data-filter="sabons">Sabons</button>
+            <button class="btn-filtre" data-filter="joies">Joies</button>
+            <button class="btn-filtre" data-filter="espelmes">Espelmes</button>
+            <button class="btn-filtre" data-filter="ambientadors">Ambientadors</button>
+            <button class="btn-filtre" data-filter="altres">Altres</button>
+        </section>
+
+        <section class="product-grid-container container">
+            <div id="product-grid" class="product-grid fade-in-scroll">
+                <p>Carregant productes...</p> 
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Laura Bosch. Tots els drets reservats.</p>
+        </div>
+    </footer>
+
+    <script src="js/cataleg.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

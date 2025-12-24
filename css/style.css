@@ -1,0 +1,640 @@
+/* --- Variables Globals i Reset --- */
+:root {
+    --color-primari: #8D6E63; /* Marró terrós suau */
+    --color-secundari: #A1887F;
+    --color-accent: #FFAB91; /* Préssec suau */
+    --color-text: #4E342E;
+    --color-fons: #FDFEFE;
+    --color-fons-secundari: #F5F5F5;
+    
+    --font-titols: 'Georgia', serif;
+    --font-text: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    
+    --shadow: 0 4px 12px rgba(0,0,0,0.05);
+    --transition: all 0.3s ease;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-text);
+    color: var(--color-text);
+    background-color: var(--color-fons);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    color: var(--color-primari);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--color-accent);
+}
+
+h1, h2, h3 {
+    font-family: var(--font-titols);
+    color: var(--color-primari);
+    margin-bottom: 1rem;
+}
+
+/* --- Header i Navegació --- */
+header {
+    background-color: var(--color-fons);
+    border-bottom: 1px solid var(--color-fons-secundari);
+    padding: 1.5rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--font-titols);
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--color-text);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav li {
+    margin-left: 2rem;
+}
+
+nav a {
+    font-size: 1rem;
+    font-weight: 500;
+    padding-bottom: 5px;
+    border-bottom: 2px solid transparent;
+}
+
+nav a.active,
+nav a:hover {
+    color: var(--color-primari);
+    border-bottom-color: var(--color-primari);
+}
+
+/* Menú Hamburguesa (Mòbil) */
+.menu-hamburguesa {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.menu-hamburguesa span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--color-text); /* Nota: referenciat segons base */
+    margin: 5px 0;
+    transition: var(--transition);
+}
+
+/* --- Botons --- */
+.btn {
+    display: inline-block;
+    background-color: var(--color-primari);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: var(--color-text);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+.btn-secundari {
+    border-bottom: 2px solid var(--color-primari);
+    padding-bottom: 4px;
+    font-weight: bold;
+}
+
+/* --- Secció Hero (Portada) --- */
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+                url('../img/portada.jpg') no-repeat center center/cover;
+    background-attachment: fixed; 
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    color: white;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+}
+
+/* --- Secció Sobre Mi --- */
+.sobre-mi {
+    padding: 8rem 0 4rem 0; 
+}
+
+.sobre-mi h2 {
+    margin-bottom: 3.5rem;
+    font-size: 2.5rem;
+    letter-spacing: 1px;
+    text-align: center; 
+}
+
+.sobre-mi-contingut {
+    display: flex;         
+    flex-direction: column; 
+    align-items: center;    
+    gap: 3rem;
+    max-width: 800px;       
+    margin: 0 auto;         
+}
+
+.sobre-mi-text p {
+    text-align: center;     
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;      
+}
+
+.sobre-mi-text {
+    text-align: center;     
+}
+
+/* --- Categories Destacades --- */
+.destacats {
+    padding: 4rem 0;
+}
+
+.destacats h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.categoria-card {
+    position: relative;
+    height: 350px;
+    background: var(--color-secundari) no-repeat center center/cover;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    padding: 1.5rem;
+    transition: var(--transition);
+}
+
+.categoria-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.categoria-card h3 {
+    font-size: 1.8rem;
+    color: white;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+    z-index: 2;
+}
+
+.categoria-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+    z-index: 1;
+}
+
+/* --- Pàgina Catàleg: Filtres --- */
+.cataleg-header {
+    padding: 6rem 0 2rem;
+    text-align: center;
+}
+
+.filtres {
+    padding: 2rem 0;
+    text-align: center;
+    border-bottom: 1px solid var(--color-fons-secundari);
+}
+
+.btn-filtre {
+    background: none;
+    border: 1px solid var(--color-secundari);
+    color: var(--color-secundari);
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: var(--transition);
+    font-weight: 500;
+}
+
+.btn-filtre.active,
+.btn-filtre:hover {
+    background-color: var(--color-primari);
+    border-color: var(--color-primari);
+    color: white;
+}
+
+/* --- Pàgina Catàleg: Graella de Productes --- */
+.product-grid-container {
+    padding: 4rem 0;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2.5rem;
+    align-items: start; /* Permet que les targetes creixin segons el text */
+}
+
+.product-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: var(--transition);
+    animation: scaleIn 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Fa que totes tinguin la mateixa alçada si cal */
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.product-card-img {
+    height: 300px;
+    background-color: var(--color-fons-secundari);
+    background-size: cover;
+    background-position: center;
+    cursor: zoom-in;
+    flex-shrink: 0; /* Evita que la imatge s'encongeixi */
+}
+
+.product-card-info {
+    padding: 1.5rem;
+    flex-grow: 1; /* El text ocupa l'espai restant */
+}
+
+/* JUSTIFICACIÓ DE LA DESCRIPCIÓ SENSE RETALLAR */
+.product-card-info p {
+    text-align: justify;    /* Justifica el text pels costats */
+    hyphens: auto;          /* Ajuda a la justificació tallant paraules si cal */
+    line-height: 1.6;
+    font-size: 0.95rem;
+    margin-top: 0.8rem;
+    /* Hem eliminat line-clamp per no retallar res */
+}
+
+.product-card-info h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.product-card-info .categoria {
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: var(--color-accent);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+/* --- Lightbox / Galeria --- */
+#lightbox {
+    position: fixed;
+    z-index: 2000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(5px);
+}
+
+#lightbox.active {
+    display: flex;
+    animation: fadeIn 0.3s ease;
+}
+
+.lightbox-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#lightbox-img {
+    max-width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 4px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+}
+
+.close-lightbox {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.close-lightbox:hover {
+    color: var(--color-accent);
+}
+
+.lightbox-nav button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+    padding: 20px 15px;
+    cursor: pointer;
+    font-size: 2rem;
+    transition: var(--transition);
+    border-radius: 5px;
+}
+
+.lightbox-nav button:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+#prev-btn { left: -80px; }
+#next-btn { right: -80px; }
+
+.lightbox-counter {
+    color: white;
+    margin-top: 15px;
+    font-family: var(--font-text);
+    font-size: 0.9rem;
+    background: rgba(0,0,0,0.5);
+    padding: 5px 15px;
+    border-radius: 20px;
+}
+
+/* --- Contacte --- */
+.contacte-contingut {
+    padding: 4rem 0;
+}
+
+.contacte-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+.llista-contacte {
+    list-style: none;
+    margin: 2rem 0;
+}
+
+.llista-contacte li {
+    margin-bottom: 1.2rem;
+    font-size: 1.1rem;
+}
+
+.form-grup {
+    margin-bottom: 1.5rem;
+}
+
+.form-grup label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.form-grup input,
+.form-grup textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: var(--font-text);
+}
+
+/* --- Footer --- */
+footer {
+    background-color: var(--color-fons-secundari);
+    padding: 3rem 0;
+    text-align: center;
+    margin-top: 4rem;
+}
+
+/* --- Animacions --- */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+    from { transform: scale(0.95); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.fade-in { animation: fadeIn 0.8s ease forwards; }
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+
+.fade-in-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+    
+    header nav.obert {
+        display: block; /* Fem que es vegi quan premem el botó */
+        position: absolute;
+        top: 100%; /* Just sota el header */
+        left: 0;
+        width: 100%;
+        background-color: var(--color-fons);
+        border-bottom: 1px solid var(--color-fons-secundari);
+        padding: 20px 0;
+        box-shadow: 0 10px 10px rgba(0,0,0,0.05);
+    }
+
+    header nav.obert ul {
+        flex-direction: column; /* Posem els links un sota l'altre */
+        align-items: center;
+    }
+
+    header nav.obert li {
+        margin: 10px 0;
+        margin-left: 0; /* Treiem el marge lateral que tenien en escriptori */
+    }
+
+    /* Animació per al botó d'hamburguesa (opcional però queda molt bé) */
+    .menu-hamburguesa.obert span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .menu-hamburguesa.obert span:nth-child(2) {
+        opacity: 0;
+    }
+    .menu-hamburguesa.obert span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+        .sobre-mi-contingut, .contacte-grid {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        
+        #prev-btn { left: 10px; }
+        #next-btn { right: 10px; }
+        
+        .hero h1 { font-size: 2.5rem; }
+        
+        nav {
+            display: none;
+        }
+        
+        .menu-hamburguesa {
+            display: block;
+        }
+}
+
+/* Efecte de zoom suau a la imatge quan passes el ratolí per les categories */
+.categoria-card {
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.categoria-card:hover h3 {
+    transform: translateY(-5px);
+    transition: transform 0.3s ease;
+}
+
+.categoria-card:hover::after {
+    background: linear-gradient(to top, rgba(141, 110, 99, 0.8), transparent); /* El color primari amb transparència */
+    transition: background 0.5s ease;
+}
+
+.product-card-img-container {
+    background-color: #f0f0f0; /* Un gris suau mentre carrega */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lazy-img {
+    transition: opacity 0.5s ease;
+}
+
+/* --- Secció de Frases Decoratives --- */
+.frases-seccio {
+    padding: 2rem 0 5rem 0; /* Espai controlat entre el text de dalt i les categories */
+}
+
+.frases-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem; /* Separació neta entre targetes */
+}
+
+.frase-card {
+    /* Això fa que siguin una mica més altes que amples, com a la teva foto */
+    aspect-ratio: 4 / 5; 
+    background-size: cover;
+    background-position: center;
+    border-radius: 25px; /* Cantonades molt arrodonides com a la imatge */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05); /* Ombra molt suau i elegant */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: white; /* Per si la imatge triga a carregar */
+}
+
+.frase-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+/* --- Ajust per a la secció de Categories (Destacats) --- */
+.destacats {
+    padding-top: 2rem; /* Reduïm l'espai superior perquè ja el donen les frases */
+}
+
+/* Responsive per a mòbils */
+@media (max-width: 900px) {
+    .frases-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnes en tauletes/mòbils grans */
+    }
+}
+
+@media (max-width: 600px) {
+    .frases-grid {
+        gap: 1rem;
+    }
+    .frase-card {
+        border-radius: 15px; /* Una mica menys de radi en pantalles petites */
+    }
+}
